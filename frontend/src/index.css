@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body { font-family: 'Inter', system-ui, sans-serif; }
+
+  /* ── Scrollbar ───────────────────────────────────────────────────────────── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+
+  .dark ::-webkit-scrollbar-thumb { background: #334155; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb       { background: #cbd5e1; border-radius: 99px; }
+
+  /* ── Root backgrounds ────────────────────────────────────────────────────── */
+  html      { background-color: #f1f5f9; }  /* light: slate-100 */
+  html.dark { background-color: #020617; }  /* dark:  slate-950  */
+}
+
+@layer utilities {
+  /* ── Glass — dark mode ───────────────────────────────────────────────────── */
+  .dark .glass {
+    background-color: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  .dark .glass-hover:hover {
+    background-color: rgba(30, 41, 59, 0.80);
+  }
+
+  /* ── Glass — light mode ──────────────────────────────────────────────────── */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px) saturate(180%);
+  }
+  .glass-hover:hover {
+    background-color: rgba(255, 255, 255, 0.96);
+  }
+
+  /* ── Gradient text ───────────────────────────────────────────────────────── */
+  .gradient-text {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
